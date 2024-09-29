@@ -1,0 +1,81 @@
+.header {
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 22px 0;
+    transition: padding 0.3s linear;
+    -webkit-transition: padding 0.3s linear;
+    z-index: 999;
+}
+
+.header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3); /* Sombra blanca */
+}
+
+.menu-container {
+    flex-flow: wrap;
+    box-sizing: border-box;
+    display: flex;
+    place-content: center flex-start;
+    align-items: center;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+    flex: 1 1 0%;
+    box-sizing: border-box;
+    flex-direction: row;
+    display: flex;
+}
+
+.menu-option {
+    cursor: pointer;
+}
+
+.hamburger {
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: white;
+    margin: 3px 0;
+}
+
+.span-menu {
+    flex: 1 1 0%; box-sizing: border-box;
+}
+
+@media (max-width: 990px) {
+    .menu {
+        display: none; /* Ocultar el menú en pantallas pequeñas */
+    }
+
+    .hamburger {
+        display: flex; /* Mostrar el menú hamburguesa */
+    }
+
+    .menu.open {
+        display: flex; /* Mostrar el menú cuando está abierto */
+        flex-direction: column; /* Cambiar a dirección vertical */
+        position: absolute; /* Para desplegarlo sobre otros elementos */
+        top: 100%; /* Colocar debajo del header */
+        left: 0;
+        right: 0;
+        background-color: black; /* Color de fondo del menú */
+    }
+}
